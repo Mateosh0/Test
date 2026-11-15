@@ -1,0 +1,1 @@
+{"name":"AURA Weather — Погода","short_name":"AURA","description":"Стильний прогноз погоди","lang":"uk","start_url":"./","scope":"./","display":"standalone","background_color":"#10152d","theme_color":"#10152d","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
