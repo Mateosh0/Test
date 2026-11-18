@@ -1,15 +1,36 @@
-# MediaOne — PWA media hub (prototype)
+# MediaOne — Cinema Premium
 
-Static HTML/CSS/JS app deployable on GitHub Pages. It uses Gutendex for Project Gutenberg books and Internet Archive metadata for media. No API secrets or backend.
+Преміальний статичний PWA-медіаорганайзер українською мовою для GitHub Pages.
 
-## Deploy
-Upload the **contents** of this folder to the repository root. In Settings → Pages choose Deploy from a branch → main → /(root). Open the Pages URL in iPhone Safari and choose Share → Add to Home Screen.
+## Можливості
+- Розділи: Головна, Фільми, Музика, Книги, Бібліотека.
+- Вбудовані **офіційні** YouTube, SoundCloud та Spotify iframe-плеєри.
+- Додавання власних прямих посилань на підтримувані платформи.
+- Книги з публічного Gutendex API, спроба читання тексту прямо в застосунку.
+- Пошук, обране, історія відкриттів, експорт та імпорт JSON.
+- Адаптивний інтерфейс і встановлення як PWA.
 
-## Limitations
-- This is an experimental MVP. Internet Archive query filters, licensing metadata, API availability, browser CORS and streaming support may vary. The application must not be treated as a fully licensed production catalog.
-- Catalog may be empty if an upstream API blocks browser requests. There is no fallback to pirated sources.
-- A work being downloadable does not guarantee that it is public domain in Ukraine. Verify item rights and territorial restrictions before public redistribution.
-- Music and film playback require internet; the service worker caches only the app shell, not media.
-- Favorites are localStorage and may disappear when Safari site data is cleared.
-- No user accounts, background downloads, universal catalog, DRM bypass, or playback of subscription-only content.
-- For production, audit licensing per item, improve accessibility, paginate APIs, handle source errors, and consider a proper data backend for caching/normalization.
+## Публікація
+1. Створіть публічний GitHub-репозиторій.
+2. Завантажте **вміст цієї папки** в корінь репозиторію (не саму папку).
+3. GitHub → Settings → Pages → Deploy from a branch → main / (root).
+4. Відкрийте `https://USERNAME.github.io/REPO/` у Safari на iPhone.
+5. Поділитися → На початковий екран → Додати.
+
+## Локальний запуск
+Використайте локальний HTTP-сервер (не відкривайте `index.html` через `file://`). Наприклад `python -m http.server 8080`.
+
+## Обмеження
+- Це **не** агрегатор усього YouTube/SoundCloud/Spotify: пошук працює по поточному каталогу. Глобальний пошук потребує відповідних офіційних API, квот і/або серверної авторизації.
+- Вбудовування залежить від налаштувань правовласника та платформи. Spotify може показувати тільки прев'ю або вимагати входу.
+- Не обходить DRM, платний доступ чи блокування iframe.
+- Gutendex працює лише за наявності інтернету. Читання текстів залежить від доступності прямого файлу та CORS на Gutenberg. Книжки суспільного надбання в США можуть мати інший правовий статус у вашій країні.
+- Обране та додані посилання зберігаються в localStorage конкретного браузера. Резервне копіювання — через JSON.
+- Інтерфейс кешується для офлайн-відкриття, але **медіаконтент потребує інтернету**.
+- Зразки YouTube/SoundCloud/Spotify — демонстраційні, можуть стати недоступними; потрібно перевіряти їх у браузері після публікації.
+
+## Джерела та документація
+- YouTube iframe: https://developers.google.com/youtube/iframe_api_reference
+- SoundCloud widget: https://developers.soundcloud.com/docs/api/html5-widget
+- Spotify embeds: https://developer.spotify.com/documentation/embeds
+- Gutendex: https://gutendex.com/
