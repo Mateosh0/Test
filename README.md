@@ -1,19 +1,15 @@
-# Мапа повітряних тривог України (PWA)
+# MediaOne — PWA media hub (prototype)
 
-Статичний проєкт для GitHub Pages. Відображає актуальні тривоги за відкритим API NEPTUN: https://neptun.in.ua/developers . API без ключа, CORS відкритий, обов'язкова атрибуція джерела реалізована в інтерфейсі.
+Static HTML/CSS/JS app deployable on GitHub Pages. It uses Gutendex for Project Gutenberg books and Internet Archive metadata for media. No API secrets or backend.
 
-## Публікація
-1. Створіть публічний GitHub-репозиторій.
-2. Завантажте **вміст цієї папки** в корінь репозиторію.
-3. Settings → Pages → Deploy from a branch → main → /(root) → Save.
-4. Відкрийте HTTPS-адресу GitHub Pages у Safari → Поділитися → На початковий екран → Додати.
+## Deploy
+Upload the **contents** of this folder to the repository root. In Settings → Pages choose Deploy from a branch → main → /(root). Open the Pages URL in iPhone Safari and choose Share → Add to Home Screen.
 
-## Важливо
-- Цей сервіс **не є офіційним оповіщенням** і не замінює сирени чи офіційний застосунок.
-- Актуальні статуси потребують інтернету. У разі помилки API статуси не показуються як актуальні.
-- Оновлення щохвилини лише під час відкритого застосунку. Немає фонових push-повідомлень.
-- Межі областей/районів та Leaflet завантажуються з зовнішніх CDN/NEPTUN; якщо межі не завантажаться, показується резервна вбудована карта NEPTUN.
-- Перевірте поведінку на реальному iPhone перед публічним запуском.
-- Стилі районів і областей спираються на `properties.key` із документації NEPTUN.
-
-Джерело: https://neptun.in.ua/ . Умови: https://neptun.in.ua/developers .
+## Limitations
+- This is an experimental MVP. Internet Archive query filters, licensing metadata, API availability, browser CORS and streaming support may vary. The application must not be treated as a fully licensed production catalog.
+- Catalog may be empty if an upstream API blocks browser requests. There is no fallback to pirated sources.
+- A work being downloadable does not guarantee that it is public domain in Ukraine. Verify item rights and territorial restrictions before public redistribution.
+- Music and film playback require internet; the service worker caches only the app shell, not media.
+- Favorites are localStorage and may disappear when Safari site data is cleared.
+- No user accounts, background downloads, universal catalog, DRM bypass, or playback of subscription-only content.
+- For production, audit licensing per item, improve accessibility, paginate APIs, handle source errors, and consider a proper data backend for caching/normalization.
